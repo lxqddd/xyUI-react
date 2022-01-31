@@ -1,0 +1,114 @@
+.btn {
+  position: relative;
+  display: inline;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $body-color;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border: $btn-border-width solid transparent;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
+  box-shadow: $btn-box-shadow;
+  cursor: pointer;
+  transition: $btn-transition;
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+    > * {
+      pointer-events: none;
+    }
+  }
+}
+
+.btn-lg {
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $border-radius-lg);
+  &.round,
+  &[round] {
+    border-radius: $btn-round-border-radius-lg;
+  }
+}
+
+.btn-default {
+  @include button-size($btn-padding-y-default, $btn-padding-x-default, $btn-font-size-default, $border-radius);
+  &.round,
+  &[round] {
+    border-radius: $btn-round-border-radius;
+  }
+}
+
+.btn-sm {
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $border-radius-sm);
+  &.round,
+  &[round] {
+    border-radius: $btn-round-border-radius-sm;
+  }
+}
+
+.btn-primary {
+  @include button-style($primary, $primary, $white);
+  &.plain,
+  &[plain] {
+    @include button-plain($primary, $primary, $primary)
+  }
+}
+
+.btn-danger {
+  @include button-style($danger, $danger, $white);
+  &.plain,
+  &[plain] {
+    @include button-plain($danger, $danger, $danger)
+  }
+}
+
+.btn-success {
+  @include button-style($success, $success, $white);
+  &.plain,
+  &[plain] {
+    @include button-plain($success, $success, $success)
+  }
+}
+
+.btn-warning {
+  @include button-style($warning, $warning, $white);
+  &.plain,
+  &[plain] {
+    @include button-plain($warning, $warning, $warning)
+  }
+}
+
+.btn-info {
+  @include button-style($white, $gray-400, $body-color, $white, $primary, $primary);
+  &.plain,
+  &[plain] {
+    @include button-plain($body-color, $white, $gray-400, $primary, $white, $primary)
+  }
+}
+
+.btn-link {
+  font-weight: $font-weight-normal;
+  color: $btn-link-color;
+  text-decoration: $link-decoration;
+  box-shadow: none;
+  background: none;
+
+  &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+    pointer-events: none;
+  }
+}
