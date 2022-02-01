@@ -1,8 +1,7 @@
 import React from "react"
 import { fireEvent, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Button from './button'
-import {ButtonProps, ButtonType, ButtonSize} from './types'
+import Button, { ButtonProps, ButtonType, ButtonSize } from './index'
 
 const defaultProps = {
   onClick: jest.fn()
@@ -19,6 +18,11 @@ const testProps: ButtonProps = {
 const linkProps: ButtonProps = {
   btnType: ButtonType.Link,
   href: 'www.baidu.com'
+}
+
+const disabledProps: ButtonProps = {
+  disabled: true,
+  onClick: jest.fn()
 }
 
 describe('test Button component', () => {
@@ -43,5 +47,15 @@ describe('test Button component', () => {
     render(<Button {...linkProps}>link</Button>)
     const element = screen.getByText('link')
     expect(element.tagName).toEqual('A')
+    expect(element).toHaveClass('btn-link')
+  })
+
+  it('should render disabled button when disabled set to true', () => {
+    render(<Button { ...disabledProps }>disabled</Button>)
+    const element = screen.getByText('disabled')
+    expect(element).toBeInTheDocument()
+    expect(element).toHaveAttribute('disabled')
+    fireEvent.click(element)
+    expect(disabledProps.onClick).not.toBeCalled()
   })
 })
