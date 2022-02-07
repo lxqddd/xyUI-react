@@ -6,9 +6,11 @@ import './styles/index.scss'
 import MenuItem from './components/Menu/menuItem'
 import Menu from './components/Menu/menu'
 import SubMenu from './components/Menu/subMenu'
+import Icon from './components/Icon/icon'
 
 ReactDOM.render(
   <React.StrictMode>
+    <Icon icon='coffee' size='10x' />
     <h1>menu</h1>
     <Menu 
       onSelect={(index) => {
