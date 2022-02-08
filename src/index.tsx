@@ -10,13 +10,13 @@ import Icon from './components/Icon/icon'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Icon icon='coffee' size='10x' />
+    <Icon icon='campground' theme='primary' size='10x' />
     <h1>menu</h1>
     <Menu 
       onSelect={(index) => {
         console.log(index)
       }}
-      mode={'vertical'}
+      mode={'horizontal'}
     >
       <MenuItem>active</MenuItem>
       <MenuItem disabled={true}>disabled</MenuItem>
